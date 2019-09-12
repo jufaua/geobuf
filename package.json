@@ -1,5 +1,5 @@
 {
-  "name": "geobuf",
+  "name": "@jufaua/geobuf",
   "version": "3.0.1",
   "description": "Compact binary encoding for geographic data",
   "main": "index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mapbox/geobuf.git"
+    "url": "git@github.com:jufaua/geobuf.git"
   },
   "files": [
     "encode.js",
@@ -41,9 +41,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mapbox/geobuf/issues"
+    "url": "https://github.com/jufaua/geobuf/issues"
   },
-  "homepage": "https://github.com/mapbox/geobuf",
+  "homepage": "https://github.com/jufaua/geobuf",
   "devDependencies": {
     "benchmark": "~2.1.4",
     "browserify": "^16.2.2",
