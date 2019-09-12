@@ -146,10 +146,19 @@ function writeValue(value, pbf) {
     if (value === null) return;
 
     var type = typeof value;
+    var isArray = Array.isArray(value);
 
     if (type === 'string') pbf.writeStringField(1, value);
     else if (type === 'boolean') pbf.writeBooleanField(5, value);
-    else if (type === 'object') pbf.writeStringField(6, JSON.stringify(value));
+    else if (type === 'object') {
+        if (Array.isArray(value) && Array.from(new Set(value.map(v => typeof v))).length === 1 && Array.from(new Set(value.map(v => typeof v)))[0] === 'number') {
+            if (value.every(v => v % 1 !== 0)) pbf.writePackedDouble(8,value);
+            else if (value.every(v => v >= 0)) pbf.writePackedVarint(9,value);
+            else pbf.writePackedSVarint(10,value);
+        } else {
+            pbf.writeStringField(6, JSON.stringify(value));
+        }
+    } 
     else if (type === 'number') {
         if (value % 1 !== 0) pbf.writeDoubleField(2, value);
         else if (value >= 0) pbf.writeVarintField(3, value);

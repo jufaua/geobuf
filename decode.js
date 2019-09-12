@@ -102,6 +102,9 @@ function readValue(pbf) {
         else if (tag === 4) value = -pbf.readVarint();
         else if (tag === 5) value = pbf.readBoolean();
         else if (tag === 6) value = JSON.parse(pbf.readString());
+        else if (tag === 8) value = pbf.readPackedDouble();
+        else if (tag === 9) value = pbf.readPackedVarint();
+        else if (tag === 10) value = pbf.readPackeSVarint();
     }
     return value;
 }
