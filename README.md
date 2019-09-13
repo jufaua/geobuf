@@ -84,7 +84,7 @@ npm run build-min # dist/geobuf.js (minified production build)
 ## Command Line
 
 ```bash
-npm install -g geobuf
+npm install -g @jufaua/geobuf
 ```
 
 Installs these nifty binaries:
