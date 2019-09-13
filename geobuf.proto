@@ -61,6 +61,9 @@ message Data {
             uint64 neg_int_value = 4;
             bool bool_value = 5;
             string json_value = 6;
+            double float_array = 8 [packed = true];
+            uint64 uint_array = 9 [packed = true];
+            sint64 sint_array = 10 [packed = true];
         }
     }
 }
