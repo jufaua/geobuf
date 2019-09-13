@@ -151,9 +151,9 @@ function writeValue(value, pbf) {
     if (type === 'string') pbf.writeStringField(1, value);
     else if (type === 'boolean') pbf.writeBooleanField(5, value);
     else if (type === 'object') {
-        if (Array.isArray(value) && Array.from(new Set(value.map(v => typeof v))).length === 1 && Array.from(new Set(value.map(v => typeof v)))[0] === 'number') {
-            if (value.every(v => v % 1 !== 0)) pbf.writePackedDouble(8,value);
-            else if (value.every(v => v >= 0)) pbf.writePackedVarint(9,value);
+        if (Object.prototype.toString.call(value) === '[object Array]' && value.filter(function(x,i,a) {return a.indexOf(x) == i}).length === 1 && value.filter(function(x,i,a) {return a.indexOf(x) == i})[0] === 'number') {
+            if (value.some(function(v) { return v % 1 !== 0 })) pbf.writePackedDouble(8,value);
+            else if (value.every(function(v) { return v >= 0 })) pbf.writePackedVarint(9,value);
             else pbf.writePackedSVarint(10,value);
         } else {
             pbf.writeStringField(6, JSON.stringify(value));
