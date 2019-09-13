@@ -1,6 +1,6 @@
 {
   "name": "@jufaua/geobuf",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Compact binary encoding for geographic data",
   "main": "index.js",
   "bin": {
@@ -12,7 +12,7 @@
     "pretest": "eslint *.js test/*.js",
     "test": "tap test/*.js",
     "cov": "tap --cov test/*.js",
-    "build-min": "mkdirp dist && browserify index.js -s geobuf | uglifyjs -c warnings=false -m > dist/geobuf.js",
+    "build-min": "mkdirp dist && browserify index.js -s geobuf | uglifyjs -m > dist/geobuf.js",
     "build-dev": "mkdirp dist && browserify index.js -d -s geobuf > dist/geobuf-dev.js",
     "build-all": "npm run build-min && npm run build-dev",
     "prepublish": "in-publish && npm run build-all || not-in-publish"
