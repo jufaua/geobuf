@@ -1,9 +1,8 @@
 # Geobuf
 
-[![Build Status](https://travis-ci.org/mapbox/geobuf.svg)](https://travis-ci.org/mapbox/geobuf)
-[![Coverage Status](https://img.shields.io/coveralls/mapbox/geobuf.svg)](https://coveralls.io/r/mapbox/geobuf)
-
 Geobuf is a compact binary encoding for geographic data.
+
+This is a fork of [mapbox/geobuf](https://github.com/mapbox/geobuf) that adds support for packing array of numbers instead of handling them as object, resulting in a more compact protobuf for use cases with large arrays of int/float.
 
 Geobuf provides _nearly lossless_ compression of GeoJSON data
 into [protocol buffers](https://developers.google.com/protocol-buffers/).
@@ -65,7 +64,7 @@ Given a [Pbf](https://github.com/mapbox/pbf) object with Geobuf data, return a G
 Node and Browserify:
 
 ```bash
-npm install geobuf
+npm install @jufaua/geobuf
 ```
 
 Browser build CDN links:
